@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="relative w-full py-32 bg-gradient-to-b from-black-dark to-black-soft overflow-hidden">
+    <section id="sobre" className="relative w-full py-16 sm:py-24 md:py-32 bg-gradient-to-b from-black-dark to-black-soft overflow-hidden">
       {/* Background Elements */}
       <motion.div
         className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-gold-primary opacity-5 blur-3xl"
@@ -18,7 +18,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
             <div className="space-y-4">
               <motion.div
@@ -30,7 +30,7 @@ export function AboutSection() {
                 </span>
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white-pure leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white-pure leading-[1.1] sm:leading-tight">
                 Cristine Vieira:{' '}
                 <span 
                   className="relative inline-block bg-clip-text text-transparent"

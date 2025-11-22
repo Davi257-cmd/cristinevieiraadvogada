@@ -122,15 +122,15 @@ const ReviewCard = ({
 
 export function TestimonialsSection() {
   return (
-    <section id="depoimentos" className="relative w-full py-32 bg-black-dark overflow-hidden">
+    <section id="depoimentos" className="relative w-full py-16 sm:py-24 md:py-32 bg-black-dark overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-6 mb-20 text-center"
+        className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12 md:mb-20 text-center"
       >
-        <h2 className="text-5xl md:text-6xl font-bold text-white-pure mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white-pure mb-3 sm:mb-4 leading-[1.1] sm:leading-tight">
           Vozes <span className="relative inline-block">
             <span 
               className="bg-clip-text text-transparent inline-block"

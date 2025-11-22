@@ -52,32 +52,40 @@ const fraudAlerts: FraudAlert[] = [
 
 function FraudAlertItem({ title, description, icon, color }: FraudAlert) {
   return (
-    <div className="flex flex-row items-center gap-3 p-4 rounded-xl bg-black-soft/50 backdrop-blur-md border border-white/10 hover:border-white/20 hover:bg-black-soft/70 transition-all duration-200">
-      <div
-        className="flex size-10 items-center justify-center rounded-xl flex-shrink-0"
-        style={{
-          backgroundColor: `${color}20`,
-        }}
-      >
-        <div style={{ color: color }}>
-          {icon}
+    <figure
+      className={cn(
+        "relative mx-auto min-h-fit w-full max-w-full cursor-pointer overflow-hidden rounded-xl p-3 sm:p-4",
+        "transition-all duration-200 ease-in-out hover:scale-[103%]",
+        "bg-black-soft/50 backdrop-blur-md border border-white/10 hover:border-white/20 hover:bg-black-soft/70"
+      )}
+    >
+      <div className="flex flex-row items-center gap-2 sm:gap-3">
+        <div
+          className="flex size-8 sm:size-10 items-center justify-center rounded-xl flex-shrink-0"
+          style={{
+            backgroundColor: `${color}20`,
+          }}
+        >
+          <div style={{ color: color }} className="flex items-center justify-center">
+            {icon}
+          </div>
+        </div>
+        <div className="flex flex-col overflow-hidden flex-1 min-w-0">
+          <figcaption className="text-sm sm:text-base font-medium text-white-pure whitespace-pre">
+            {title}
+          </figcaption>
+          <p className="text-xs sm:text-sm font-normal text-white-cream/60 mt-0.5">
+            {description}
+          </p>
         </div>
       </div>
-      <div className="flex flex-col overflow-hidden flex-1 min-w-0">
-        <div className="text-base font-medium text-white-pure">
-          {title}
-        </div>
-        <p className="text-sm font-normal text-white-cream/60 mt-0.5">
-          {description}
-        </p>
-      </div>
-    </div>
+    </figure>
   );
 }
 
 export function FraudProtectionSection() {
   return (
-    <section className="relative w-full py-40 bg-gradient-to-b from-black-dark via-black-dark to-black-soft overflow-hidden">
+    <section className="relative w-full py-20 sm:py-32 md:py-40 bg-gradient-to-b from-black-dark via-black-dark to-black-soft overflow-hidden">
       {/* Background Elements */}
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold-rose opacity-5 blur-3xl"
@@ -93,10 +101,10 @@ export function FraudProtectionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-4 sm:space-y-6 md:space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl font-bold text-white-pure leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white-pure leading-[1.1] sm:leading-tight">
                 <span 
                   className="relative inline-block bg-clip-text text-transparent"
                   style={{
@@ -192,14 +200,15 @@ export function FraudProtectionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative flex items-center justify-center h-full"
+            className="relative flex items-center justify-center h-full w-full"
           >
             <div
               className={cn(
-                "relative flex h-[500px] w-full flex-col"
+                "relative flex w-full flex-col overflow-hidden rounded-2xl",
+                "h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px]"
               )}
             >
-              <AnimatedList delay={400} className="p-2">
+              <AnimatedList delay={600} className="p-2 sm:p-3">
                 {fraudAlerts.map((alert, idx) => (
                   <FraudAlertItem key={idx} {...alert} />
                 ))}

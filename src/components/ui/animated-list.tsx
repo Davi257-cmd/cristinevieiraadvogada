@@ -57,18 +57,19 @@ export const AnimatedList = React.memo(
     return (
       <div
         ref={containerRef}
-        className={cn(`flex flex-col gap-3 overflow-y-auto hide-scrollbar justify-center`, className)}
+        className={cn(`flex flex-col gap-2 sm:gap-3 overflow-y-auto hide-scrollbar`, className)}
+        style={{ maxHeight: '100%' }}
         {...props}
       >
         <AnimatePresence mode="popLayout">
           {visibleItems.map((item, index) => (
             <motion.div
               key={(item as React.ReactElement).key || `item-${index}`}
-              initial={{ opacity: 0, y: -30, scale: 0.9 }}
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.9 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{
-                duration: 0.5,
+                duration: 0.4,
                 ease: [0.4, 0, 0.2, 1],
                 delay: 0,
               }}

@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         {/* Left: Text Content with Dark Background */}
         <div className="relative bg-black flex items-center z-10 order-2 lg:order-1">
-          <div className="max-w-2xl mx-auto px-6 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20 space-y-6 sm:space-y-8 w-full text-center lg:text-left">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20 space-y-4 sm:space-y-6 md:space-y-8 w-full text-center lg:text-left">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white-pure leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white-pure leading-[1.1] sm:leading-tight"
               style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
             >
               Garanta seus{' '}

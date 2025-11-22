@@ -18,15 +18,15 @@ export function InstagramSection() {
   ];
 
   return (
-    <section className="relative w-full py-32 bg-gradient-to-b from-black-soft to-black-dark overflow-hidden">
+    <section className="relative w-full py-16 sm:py-24 md:py-32 bg-gradient-to-b from-black-soft to-black-dark overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-6 mb-16 text-center"
+        className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12 md:mb-16 text-center"
       >
-        <h2 className="text-5xl md:text-6xl font-bold text-white-pure mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white-pure mb-3 sm:mb-4 leading-[1.1] sm:leading-tight">
           Conteúdo           <span 
             className="relative inline-block bg-clip-text text-transparent"
             style={{

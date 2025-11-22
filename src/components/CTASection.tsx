@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export function CTASection() {
   return (
-    <section id="contato" className="relative w-full py-40 overflow-hidden">
+    <section id="contato" className="relative w-full py-20 sm:py-32 md:py-40 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-gold-primary/20 via-gold-rose/10 to-black-dark" />
 
@@ -14,13 +14,13 @@ export function CTASection() {
         transition={{ duration: 15, repeat: Infinity }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4 sm:space-y-6 md:space-y-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-bold text-white-pure"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold text-white-pure leading-[1.1] sm:leading-tight"
         >
           Seu Banco Violou <span 
             className="relative inline-block bg-clip-text text-transparent"
