@@ -4,14 +4,30 @@ import { motion } from 'framer-motion';
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setScrolled(currentScrollY > 50);
+      
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = ['Especialidades', 'Sobre', 'Depoimentos', 'Contato'];
 
@@ -19,11 +35,12 @@ export function Header() {
     <motion.header
       initial={{ y: 0 }}
       animate={{
+        y: isVisible ? 0 : -100,
         backdropFilter: scrolled ? 'blur(20px)' : 'blur(0px)',
         backgroundColor: scrolled ? 'rgba(10, 10, 10, 0.7)' : 'rgba(10, 10, 10, 0)',
         boxShadow: scrolled ? '0 10px 40px rgba(212, 175, 55, 0.1)' : 'none',
       }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="fixed top-0 left-0 right-0 z-50 border-b border-gold-rose/20"
       style={{
         width: '90%',

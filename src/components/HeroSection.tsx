@@ -118,7 +118,7 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="hidden lg:block absolute top-1/3 z-30"
-            style={{ right: '-670px' }}
+            style={{ right: '-800px' }}
           >
             <motion.div
               className="px-4 py-3 rounded-lg bg-black-soft/90 backdrop-blur-md border border-white/10 shadow-xl"
@@ -154,7 +154,7 @@ export function HeroSection() {
         </motion.div>
 
         {/* Right: Image with Fade/Blur */}
-        <div className="relative h-[50vh] sm:h-[60vh] lg:h-screen lg:min-h-screen overflow-hidden order-1 lg:order-2">
+        <div className="relative h-[75vh] lg:h-screen lg:min-h-screen overflow-hidden order-1 lg:order-2">
           {/* Mobile Image */}
           <img
             src="/cristine-adv/cristine-com-fade.png"
@@ -197,7 +197,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
             className="absolute z-30 lg:hidden"
-            style={{ top: '200px', left: '308px', right: '12px' }}
+            style={{ top: '200px', left: '260px', right: '12px' }}
           >
             <motion.div
               className="px-2.5 py-1.5 rounded-md bg-black-soft/90 backdrop-blur-md border border-white/10 shadow-xl w-fit"
