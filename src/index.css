@@ -1,0 +1,196 @@
+/* Bootstrap Icons - Must be first */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LUXURY COLOR SYSTEM - Cristine Vieira */
+/* All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Ouro e Tons Quentes */
+    --gold-primary: 43 70% 53%;           /* #D4AF37 - Ouro Clássico */
+    --gold-rose: 20 60% 78%;              /* #E6B8A2 - Ouro Rosê */
+    --gold-warm: 38 75% 81%;              /* #F4D4A8 - Ouro Quente */
+
+    /* Preto Premium */
+    --black-dark: 0 0% 4%;                /* #0A0A0A - Preto Absolute */
+    --black-rich: 0 0% 10%;               /* #1A1A1A - Preto Rich */
+    --black-soft: 0 0% 18%;               /* #2D2D2D - Preto Soft */
+
+    /* Branco Elegante */
+    --white-pure: 0 0% 100%;              /* #FFFFFF - Branco Puro */
+    --white-cream: 40 29% 97%;            /* #FAF9F6 - Branco Cremoso */
+
+    /* Acentos Luxury */
+    --accent-rose-dark: 16 56% 49%;       /* #C25D3B - Rosa/Coral */
+    --accent-plum: 276 30% 41%;           /* #6B4C8A - Plum */
+
+    /* Design System Tokens */
+    --background: var(--black-dark);
+    --foreground: var(--white-pure);
+
+    --card: var(--black-soft);
+    --card-foreground: var(--white-pure);
+
+    --popover: var(--black-rich);
+    --popover-foreground: var(--white-pure);
+
+    --primary: var(--gold-primary);
+    --primary-foreground: var(--black-dark);
+
+    --secondary: var(--black-soft);
+    --secondary-foreground: var(--white-pure);
+
+    --muted: var(--black-soft);
+    --muted-foreground: var(--white-cream);
+
+    --accent: var(--gold-rose);
+    --accent-foreground: var(--black-dark);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--white-pure);
+
+    --border: var(--gold-rose);
+    --input: var(--black-soft);
+    --ring: var(--gold-primary);
+
+    --radius: 1rem;
+
+    /* Gradient Variables */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--gold-primary)), hsl(var(--gold-rose)));
+    --gradient-hero: linear-gradient(135deg, 
+      hsla(43, 70%, 53%, 0.15) 0%,
+      hsla(20, 60%, 78%, 0.1) 50%,
+      hsla(276, 30%, 41%, 0.05) 100%);
+
+    /* Shadow Variables */
+    --shadow-gold: 0 10px 40px hsla(43, 70%, 53%, 0.2);
+    --shadow-gold-lg: 0 20px 60px hsla(43, 70%, 53%, 0.3);
+
+    /* Transition */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .theme {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  /* Smooth Scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Typography Classes */
+  .font-playfair {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-inter {
+    font-family: 'Crimson Pro', serif;
+  }
+
+  .font-elegant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-body {
+    font-family: 'Crimson Pro', serif;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-gold-primary to-gold-rose bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.7);
+  }
+
+  /* Custom Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsla(43, 70%, 53%, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsla(43, 70%, 53%, 0.6);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
