@@ -177,7 +177,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="absolute z-30 lg:hidden"
-            style={{ top: '110px', left: '12px', right: '12px' }}
+            style={{ top: '150px', left: '12px', right: '12px' }}
           >
             <motion.div
               className="px-2.5 py-1.5 rounded-md bg-black-soft/90 backdrop-blur-md border border-white/10 shadow-xl w-fit"
@@ -197,7 +197,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
             className="absolute z-30 lg:hidden"
-            style={{ top: '200px', left: '260px', right: '12px' }}
+            style={{ top: '290px', left: '260px', right: '12px' }}
           >
             <motion.div
               className="px-2.5 py-1.5 rounded-md bg-black-soft/90 backdrop-blur-md border border-white/10 shadow-xl w-fit"

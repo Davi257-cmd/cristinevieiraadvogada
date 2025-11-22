@@ -6,12 +6,43 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Reset hasScrolled when page loads or scroll returns to top
+    if (window.scrollY === 0) {
+      setHasScrolled(false);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
       setScrolled(currentScrollY > 50);
+      
+      // Reset hasScrolled when scroll returns to top
+      if (currentScrollY === 0) {
+        setHasScrolled(false);
+      }
+      
+      // On mobile: header starts fixed, becomes floating after first scroll
+      if (isMobile) {
+        if (currentScrollY > 0 && !hasScrolled) {
+          setHasScrolled(true);
+        }
+      }
       
       // Hide header when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -27,9 +58,11 @@ export function Header() {
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, hasScrolled, isMobile]);
 
   const navItems = ['Especialidades', 'Sobre', 'Depoimentos', 'Contato'];
+
+  const shouldBeFloating = isMobile ? hasScrolled : true;
 
   return (
     <motion.header
@@ -43,10 +76,10 @@ export function Header() {
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="fixed top-0 left-0 right-0 z-50 border-b border-gold-rose/20"
       style={{
-        width: '90%',
+        width: shouldBeFloating ? '90%' : '100%',
         justifySelf: 'center',
-        marginTop: '25px',
-        borderRadius: '20px',
+        marginTop: shouldBeFloating ? '25px' : '0',
+        borderRadius: shouldBeFloating ? '20px' : '0',
         backgroundImage: scrolled
           ? 'linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(230, 184, 162, 0.05))'
           : 'none',

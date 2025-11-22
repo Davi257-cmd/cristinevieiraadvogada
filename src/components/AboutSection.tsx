@@ -117,10 +117,10 @@ export function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="space-y-2 bg-black-soft/50 p-3 sm:p-4 rounded-xl border border-gold-rose/20"
+                  className="space-y-1 sm:space-y-2 bg-black-soft/50 p-2 sm:p-3 md:p-4 rounded-xl border border-gold-rose/20"
                 >
                   <p 
-                    className="text-xl sm:text-2xl md:text-3xl font-bold inline-block"
+                    className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold inline-block"
                     style={{
                       backgroundImage: 'url(/ouro-texto-botoes/fundo-ouro.png)',
                       WebkitBackgroundClip: 'text',
@@ -134,7 +134,7 @@ export function AboutSection() {
                   >
                     {stat.number}
                   </p>
-                  <p className="text-white-cream/60 text-xs sm:text-sm">{stat.label}</p>
+                  <p className="text-white-cream/60 text-[10px] sm:text-xs md:text-sm">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
